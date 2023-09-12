@@ -148,7 +148,7 @@ def miscellaneous(self):
         {
             ANIMCMD_FRAME(0, 1),
             ANIMCMD_END,
-        };"""
+};"""
     print
     for i in self:
         print "ANIM_CMD("+i.upper()+","
@@ -233,7 +233,7 @@ def learnsets(self):
     LEVEL_UP_MOVE( 1, MOVE_TACKLE),
     LEVEL_UP_MOVE( 1, MOVE_GROWL),
     LEVEL_UP_END
-    };"""
+};"""
     print
     print
     print "For src/data/pokemon/teachable_learnsets.h"
