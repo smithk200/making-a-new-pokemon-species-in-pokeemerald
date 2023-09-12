@@ -232,7 +232,8 @@ def learnsets(self):
         print "static const struct LevelUpMove s"+i+"""LevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_TACKLE),
     LEVEL_UP_MOVE( 1, MOVE_GROWL),
-    LEVEL_UP_END}"""
+    LEVEL_UP_END
+    };"""
     print
     print
     print "For src/data/pokemon/teachable_learnsets.h"
