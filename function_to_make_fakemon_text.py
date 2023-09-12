@@ -259,5 +259,11 @@ def all_together(self):
     def_species(self)
     print
     learnsets(self)
+    print
+    cry(self)
+    print
+    base_stats(self)
+    print
+    miscellaneous(self)
 
 all_together(cloverlist)
