@@ -91,23 +91,22 @@ def pic_tables(self):
     for i in self:
         print """[SPECIES_"""+i.upper()+"""] = gMonFootprint_"""+i+""","""
     print
-    for i in self:
-        print """SPECIES_PAL("""+i.upper()+""", gMonPalette_"""+i+"""),"""
-    print
-    print
     print "For src/data/pokemon_graphics/palette_table.h"
     print
     for i in self:
-        print """SPECIES_SHINY_PAL("""+i.upper()+""", gMonPalette_"""+i+"""),"""
+        print """SPECIES_PAL("""+i.upper()+""", gMonPalette_"""+i+"""),"""
     print
     print
     print "For src/data/pokemon_graphics/shiny_palette_table.h"
     print
     for i in self:
-          print """[SPECIES_"""+i.upper()+"""] = gMonIcon_"""+i+""","""
+        print """SPECIES_SHINY_PAL("""+i.upper()+""", gMonPalette_"""+i+"""),"""
     print
     print
     print "For src/pokemon_icon.c"
+    print
+    for i in self:
+          print """[SPECIES_"""+i.upper()+"""] = gMonIcon_"""+i+""","""
     print
     for i in self:
         print """[SPECIES_"""+i.upper()+"""] = 0,"""
