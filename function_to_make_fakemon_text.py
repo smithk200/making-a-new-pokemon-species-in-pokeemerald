@@ -145,9 +145,9 @@ def miscellaneous(self):
     print
     for i in self:
         print """static const union AnimCmd sAnim_"""+i.upper()+"""[] =
-        {
-            ANIMCMD_FRAME(0, 1),
-            ANIMCMD_END,
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_END,
 };"""
     print
     for i in self:
