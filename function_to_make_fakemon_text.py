@@ -65,7 +65,7 @@ def pic_tables(self):
     print "For src/data/pokemon_graphics/front_pic_coordinates.h"
     print
     for i in self:
-        print """SPECIES_SPRITE("""+i.upper()+""",      gMonStillFrontPic_"""+i+"""),"""
+        print """SPECIES_SPRITE("""+i.upper()+""",      gMonFrontPic_"""+i+"""),"""
     print
     print
     print "For src/data/pokemon_graphics/back_pic_table.h"
