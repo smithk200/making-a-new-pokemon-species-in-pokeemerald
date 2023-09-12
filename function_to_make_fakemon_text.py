@@ -256,7 +256,7 @@ def all_together(self):
     print
     link_graphics(self)
     print
-    pic_tables(self
+    pic_tables(self)
     print
     def_species(self)
     print
