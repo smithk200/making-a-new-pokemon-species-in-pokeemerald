@@ -151,7 +151,7 @@ def miscellaneous(self):
 };"""
     print
     for i in self:
-        print "ANIM_CMD("+i.upper()+","
+        print "ANIM_CMD("+i.upper()+"),"
 def base_stats(self): #Will make an advanced version later, that properly places all the stats in the correct place.
     for i in self:
             print "[SPECIES_"+i.upper()+"""] =
