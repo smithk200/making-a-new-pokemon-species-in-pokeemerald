@@ -118,7 +118,7 @@ def cry(self):
         print "Cry_"+i+"""::
 	.incbin "sound/direct_sound_samples/cries/"""+i.lower()+'.bin"'
         print
-        print "        .align2"
+        print "        .align 2"
     print
     print
     print "For sound/cry_tables.inc"
