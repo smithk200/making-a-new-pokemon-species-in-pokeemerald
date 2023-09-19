@@ -32,7 +32,7 @@ def link_graphics(self):
     print "For src/data/graphics/pokemon.h"
     print
     for i in self:
-        print """const u32 gMonFrontPic_"""+i+""" = INCBIN_U32("graphics/pokemon/"""+i.lower()+"""/front.4bpp.lz");"""
+        print """const u32 gMonFrontPic_"""+i+"""[] = INCBIN_U32("graphics/pokemon/"""+i.lower()+"""/front.4bpp.lz");"""
     print
     for i in self:
         print """const u32 gMonBackPic_"""+i+"""[] = INCBIN_U32("graphics/pokemon/"""+i.lower()+"""/back.4bpp.lz");"""
@@ -53,7 +53,7 @@ def anim_front_pic(self):
     print "For  src/anim_mon_front_pics.c"
     print
     for i in self:
-        print """const u32 gMonFrontPic_"""+i+"""[] = INCBIN_U32("graphics/pokemon/"""+i+"""/anim_front.4bpp.lz");"""
+        print """const u32 gMonFrontPic_"""+i+"""[] = INCBIN_U32("graphics/pokemon/"""+i.lower()+"""/anim_front.4bpp.lz");"""
 
 def pic_tables(self):
     print "For src/data/pokemon_graphics/front_pic_table.h"
@@ -100,7 +100,7 @@ def pic_tables(self):
     print "For src/data/pokemon_graphics/shiny_palette_table.h"
     print
     for i in self:
-        print """SPECIES_SHINY_PAL("""+i.upper()+""", gMonPalette_"""+i+"""),"""
+        print """SPECIES_SHINY_PAL("""+i.upper()+""", gMonShinyPalette_"""+i+"""),"""
     print
     print
     print "For src/pokemon_icon.c"
@@ -116,7 +116,9 @@ def cry(self):
     print
     for i in self:
         print "Cry_"+i+"""::
-	.incbin "sound/direct_sound_samples/cries/"""+i.lower()+".bin\n.align2"
+	.incbin "sound/direct_sound_samples/cries/"""+i.lower()+'.bin"'
+        print
+        print "        .align2"
     print
     print
     print "For sound/cry_tables.inc"
@@ -141,6 +143,13 @@ def miscellaneous(self):
     print
     print
     print "For src/data/pokemon_graphics/front_pic_anims.h"
+    print
+    for i in self:
+        print """static const union AnimCmd *const sAnims_"""+i.upper()+"""[] =
+{
+    sAnim_GeneralFrame0,
+    sAnim_"""+i.upper()+""",
+};"""
     print
     for i in self:
         print """static const union AnimCmd sAnim_"""+i.upper()+"""[] =
@@ -196,6 +205,13 @@ def def_species(self):
     for i in self:
         print '''SPECIES_TO_NATIONAL('''+i.upper()+'''),'''
     print
+    for i in self:
+        print "[SPECIES_"+i.upper()+" - 1]    = ANIM_H_SLIDE,"
+    print
+    print "For src/pokemon_animation.c"
+    print
+    for i in self:
+        print "[SPECIES_"+i.upper()+"]     = BACK_ANIM_NONE,"
     print
     print "For  src/data/pokemon/pokedex_text.h"
     print
