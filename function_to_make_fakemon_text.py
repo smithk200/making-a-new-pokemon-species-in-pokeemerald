@@ -1,5 +1,5 @@
 gen9mons = ['Fuecoco','Crocalor','Skeledirge']
-cloverlist = ['Larvades','Proboskito','Venowatt','Adesign']
+cloverlist = ['Bacub','Urswine','Tricient','Tricillion', 'Clovenix','Inbitween','Geigh','Dragking']
 def define_species(self):
     j = 906#change if needed
     print "For include/constants/species.h"
@@ -62,12 +62,6 @@ def pic_tables(self):
         print """SPECIES_SPRITE("""+i.upper()+""", gMonFrontPic_"""+i+"""),"""
     print
     print
-    print "For src/data/pokemon_graphics/front_pic_coordinates.h"
-    print
-    for i in self:
-        print """SPECIES_SPRITE("""+i.upper()+""",      gMonFrontPic_"""+i+"""),"""
-    print
-    print
     print "For src/data/pokemon_graphics/back_pic_table.h"
     print
     for i in self:
@@ -118,7 +112,7 @@ def cry(self):
         print "Cry_"+i+"""::
 	.incbin "sound/direct_sound_samples/cries/"""+i.lower()+'.bin"'
         print
-        print "        .align 2"
+        print "     .align 2"
     print
     print
     print "For sound/cry_tables.inc"
@@ -161,6 +155,8 @@ def miscellaneous(self):
     for i in self:
         print "ANIM_CMD("+i.upper()+"),"
 def base_stats(self): #Will make an advanced version later, that properly places all the stats in the correct place.
+    print "For src/data/pokemon/base_stats.h"
+    print
     for i in self:
             print "[SPECIES_"+i.upper()+"""] =
     {
@@ -185,6 +181,7 @@ def base_stats(self): #Will make an advanced version later, that properly places
         .bodyColor = BODY_COLOR_PINK,
         .noFlip = FALSE,
     },"""
+    print
 
 def def_species(self):
     print "For  src/data/text/species_names.h"
